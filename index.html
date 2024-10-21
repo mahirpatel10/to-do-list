@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        body {
+            background-color: #fffacd; /* Light yellow background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+        .control-container {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 10px;
+        }
+        .add {
+            background: url('https://cdn-icons-png.flaticon.com/512/992/992651.png') no-repeat center center;
+            background-size: contain;
+            width: 20px;
+            height: 20px;
+            border: none;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        .input-container div {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        .input-container input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            flex-grow: 1;
+        }
+        .input-delete {
+            background: url('https://cdn-icons-png.flaticon.com/512/1214/1214428.png') no-repeat center center;
+            background-size: contain;
+            width: 20px;
+            height: 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <div class="container">
+        <div class="control-container">
+            <button class="add" onclick="addInput()"></button>
+        </div>
+        <div class="input-container" id="inputContainer">
+            <div>
+                <input type="text" placeholder="Enter task here...">
+                <button class="input-delete" onclick="deleteInput(this)"></button>
+            </div>
+            <div>
+                <input type="text" placeholder="Enter task here...">
+                <button class="input-delete" onclick="deleteInput(this)"></button>
+            </div>
+            <div>
+                <input type="text" placeholder="Enter task here...">
+                <button class="input-delete" onclick="deleteInput(this)"></button>
+            </div>
+            <div>
+                <input type="text" placeholder="Enter task here...">
+                <button class="input-delete" onclick="deleteInput(this)"></button>
+            </div>
+            <div>
+                <input type="text" placeholder="Enter task here...">
+                <button class="input-delete" onclick="deleteInput(this)"></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function deleteInput(button) {
+            const inputDiv = button.parentElement;
+            inputDiv.remove();
+        }
+
+        function addInput() {
+            const inputContainer = document.getElementById('inputContainer');
+            const newInputDiv = document.createElement('div');
+            newInputDiv.innerHTML = `
+                <input type="text" placeholder="Enter task here...">
+                <button class="input-delete" onclick="deleteInput(this)"></button>`;
+            inputContainer.appendChild(newInputDiv);
+        }
+    </script>
+</body>
+</html>
